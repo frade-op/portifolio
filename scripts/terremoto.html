@@ -1,0 +1,156 @@
+  <!-- start: example usage -->
+  <style>
+    .mbox-container {
+      position: relative;
+      height: 150px;
+    }
+
+    .mbox {
+      position: absolute;
+      top: 5%;
+      left: 25%;
+      width: 300px;
+      height: 150px;
+      background-color: #fec;
+      outline: .5rem #000 solid;
+      box-shadow: .5rem .5rem 2em #000;
+      border-radius: 1em;
+    }
+
+    .mbox td {
+      padding: .5rem;
+      font-size: 1.2rem;
+    }
+  </style>
+
+  <form>
+    <table id="earth1" class="mbox">
+      <tbody><tr valign="top">
+        <td>
+          This is some example text in a box we'll 
+          be applying an earthquake style animation effect to.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <select id="quake_style">
+            <option value="shaky">Shaky</option>
+            <option value="rotate">Rotate</option>
+            <option value="horizontal">Horizontal</option>
+            <option value="diagonal">Diagonal</option>
+            <option value="faster">Fast Rotate</option>
+          </select>
+          <input id="start-quake" type="button" style="width: 50px;" value="Start">
+        </td>
+      </tr>
+    </tbody></table>
+  </form>
+
+  <script>
+    const quakeButton = document.getElementById('start-quake');
+    const quakeStyle = document.getElementById('quake_style');
+    const earthquakeBox = document.getElementById('earth1');
+
+    function clickEffect(button) {
+      button.originalValue = button.originalValue || button.value;
+      button.value = '...';
+
+      setTimeout(() => {
+        button.value = button.originalValue;
+      }, 1000);
+    }
+
+    function getElementPosition(element) {
+      let x = element.offsetLeft;
+      let y = element.offsetTop;
+      let parent = element.offsetParent;
+
+      while (parent && getComputedStyle(parent).position !== 'relative') {
+        x += parent.offsetLeft;
+        y += parent.offsetTop;
+        parent = parent.offsetParent;
+      }
+
+      return { x, y };
+    }
+
+    function moveTo(element, x, y) {
+      element.style.left = `${x}px`;
+      element.style.top = `${y}px`;
+    }
+
+    function applyQuake(state) {
+      const { el, x, y, delta } = state;
+
+      switch (state.animationOption) {
+        case 'rotate':
+          if (++state.index > 8) state.index = 1;
+          break;
+        case 'shaky':
+          state.index = parseInt(Math.random() * 8, 10);
+          break;
+        case 'horizontal':
+          state.index += 4;
+          if (state.index > 8) state.index = 0;
+          break;
+        case 'diagonal':
+          state.index += 5;
+          if (state.index > 8) state.index = 1;
+          break;
+        case 'faster':
+          state.index += 2;
+          if (state.index > 8) state.index = 1;
+          break;
+        default:
+          if (!confirm('hmmm... default (error)')) state.ttl = 0;
+          break;
+      }
+
+      switch (state.index) {
+        case 1: moveTo(el, x - delta, y - delta); break;
+        case 2: moveTo(el, x, y - delta); break;
+        case 3: moveTo(el, x + delta, y - delta); break;
+        case 4: moveTo(el, x + delta, y); break;
+        case 5: moveTo(el, x + delta, y + delta); break;
+        case 6: moveTo(el, x, y + delta); break;
+        case 7: moveTo(el, x - delta, y + delta); break;
+        case 8: moveTo(el, x - delta, y); break;
+      }
+
+      if (--state.ttl > 0) {
+        setTimeout(() => applyQuake(state), state.speedMilliseconds);
+        return;
+      }
+
+      el.removeAttribute('data-quake');
+    }
+
+    function earthQuake({ el, animationOption }) {
+      if (el.hasAttribute('data-quake')) {
+        return;
+      }
+
+      el.setAttribute('data-quake', 'true');
+
+      applyQuake({
+        el,
+        index: 0,
+        ttl: 50,
+        delta: 1,
+        speedMilliseconds: 50,
+        animationOption: animationOption || parseInt(Math.random() * 2, 10),
+        ...getElementPosition(el)
+      });
+    }
+
+    quakeButton.addEventListener('click', () => {
+      clickEffect(quakeButton);
+      earthQuake({
+        el: earthquakeBox,
+        animationOption: quakeStyle.value
+      });
+    });
+  </script>
+  <!-- end: example usage -->
+
+  

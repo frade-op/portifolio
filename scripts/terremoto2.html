@@ -1,0 +1,201 @@
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0b1020;
+    color: #f5f7ff;
+  }
+
+  body {
+    min-height: 100vh;
+  }
+
+  #wrapper {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .quake-shell {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+    transition: transform 0.08s linear;
+    will-change: transform;
+  }
+
+  .quake-content {
+    position: relative;
+    z-index: 1;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 80px 24px;
+  }
+
+  .quake-card {
+    padding: 32px;
+    border-radius: 18px;
+    background: rgba(15, 23, 42, 0.82);
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  }
+
+  .quake-card h1 {
+    margin: 0 0 16px;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    letter-spacing: 0.04em;
+  }
+
+  .quake-card p {
+    margin: 0;
+    line-height: 1.7;
+    color: #dfe7ff;
+    font-size: 1.06rem;
+  }
+</style>
+
+<div id="wrapper">
+  <div id="container-1" class="quake-shell">
+    <div class="quake-content">
+      <div class="quake-card">
+        <h1>Terremoto no container</h1>
+        <p>
+          Este bloco ocupa toda a janela e será o container que tremerá junto com o conteúdo interno.
+          A animação é disparada por código, com duração, intensidade e tipo de movimento dinâmicos.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div id="container-2" class="quake-shell">
+    <div class="quake-content">
+      <div class="quake-card">
+        <h1>Terremoto no container</h1>
+        <p>
+          Este bloco ocupa toda a janela e será o container que tremerá junto com o conteúdo interno.
+          A animação é disparada por código, com duração, intensidade e tipo de movimento dinâmicos.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const quakeShell1 = document.getElementById('container-1');
+  const quakeShell2 = document.getElementById('container-2');
+
+  function createEarthquakeState({
+    target,
+    duration = 1200,
+    intensity = 18,
+    speed = 30,
+    mode = 'shaky'
+  } = {}) {
+    if (!target) {
+      throw new Error('É necessário informar um target para aplicar o terremoto.');
+    }
+
+    const motionMap = {
+      shaky: () => ({
+        x: (Math.random() - 0.5) * intensity * 2,
+        y: (Math.random() - 0.5) * intensity * 2,
+        rotate: (Math.random() - 0.5) * intensity * 0.7
+      }),
+      rotate: (index) => ({
+        x: Math.sin(index * 0.9) * intensity,
+        y: Math.cos(index * 1.3) * intensity * 0.6,
+        rotate: Math.sin(index * 1.6) * intensity * 1.2
+      }),
+      horizontal: (index) => ({
+        x: Math.sin(index * 2) * intensity * 1.5,
+        y: 0,
+        rotate: 0
+      }),
+      diagonal: (index) => ({
+        x: Math.sin(index * 1.5) * intensity,
+        y: Math.cos(index * 1.5) * intensity,
+        rotate: Math.sin(index * 1.2) * intensity * 0.7
+      })
+    };
+
+    const motion = motionMap[mode] || motionMap.shaky;
+    const steps = Math.max(1, Math.ceil(duration / speed));
+    const frames = [];
+
+    for (let index = 0; index < steps; index += 1) {
+      frames.push(motion(index));
+    }
+
+    return {
+      target,
+      steps,
+      frames,
+      speed,
+      mode
+    };
+  }
+
+  function triggerEarthquake(options = {}) {
+    const config = createEarthquakeState(options);
+    const { target, frames, speed } = config;
+
+    if (target.dataset.quakeRunning === 'true') {
+      return;
+    }
+
+    target.dataset.quakeRunning = 'true';
+    target.style.transition = 'transform 0.08s linear';
+
+    let step = 0;
+
+    function animate() {
+      const frame = frames[step] || { x: 0, y: 0, rotate: 0 };
+      target.style.transform = `translate(${frame.x}px, ${frame.y}px) rotate(${frame.rotate}deg)`;
+
+      if (step < frames.length - 1) {
+        step += 1;
+        setTimeout(animate, speed);
+        return;
+      }
+
+      target.style.transform = 'translate(0, 0) rotate(0deg)';
+      target.dataset.quakeRunning = 'false';
+    }
+
+    animate();
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    triggerEarthquake({
+      target: quakeShell1,
+      duration: 1200,
+      intensity: 10,
+      speed: 30,
+      mode: 'shaky'
+    });
+  });
+
+  setTimeout(() => {
+    triggerEarthquake({
+      target: quakeShell2,
+      duration: 1200,
+      intensity: 10,
+      speed: 30,
+      mode: 'shaky'
+    });
+  }, 5000);
+
+  // Como disparar manualmente depois:
+  // triggerEarthquake({ target: quakeShell, duration: 900, intensity: 14, speed: 25, mode: 'rotate' });
+  // triggerEarthquake({ target: quakeShell, duration: 1500, intensity: 22, speed: 18, mode: 'diagonal' });
+</script>
