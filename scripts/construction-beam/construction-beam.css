@@ -1,0 +1,201 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0b1020;
+    color: #f5f7ff;
+}
+
+body {
+    min-height: 100vh;
+}
+
+#wrapper {
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.quake-shell {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+    transition: transform 0.08s linear;
+    will-change: transform;
+}
+
+.quake-content {
+    position: relative;
+    z-index: 1;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 80px 24px;
+}
+
+.beam-rig {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.beam-cable {
+    position: absolute;
+    top: 0;
+    left: 30%;
+    width: 9px;
+    height: calc(50% - 91px);
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, #454b52, #d3d4c9 45%, #656b70);
+    border-right: 2px solid #30343a;
+    box-shadow: 2px 0 3px rgba(0, 0, 0, 0.35);
+}
+
+.beam-cable--right {
+    left: 70%;
+}
+
+.beam-anchor {
+    position: absolute;
+    top: 0;
+    left: calc(30% - 12px);
+    width: 33px;
+    height: 12px;
+    border: 3px solid #34383c;
+    border-top: 0;
+    border-radius: 0 0 5px 5px;
+    background: linear-gradient(90deg, #777d81, #e2ded0 48%, #85898a);
+}
+
+.beam-anchor--right {
+    left: calc(70% - 12px);
+}
+
+.beam-hook {
+    position: absolute;
+    top: calc(50% - 91px);
+    left: 30%;
+    z-index: 4;
+    width: 45px;
+    height: 66px;
+    transform: translateX(-50%);
+    border-left: 8px solid #555b60;
+    border-bottom: 8px solid #8f9697;
+    border-radius: 0 0 0 23px;
+    filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.45));
+}
+
+.beam-hook::after {
+    position: absolute;
+    right: 100%;
+    bottom: -8px;
+    width: 15px;
+    height: 8px;
+    border-radius: 4px 0 0 4px;
+    background: #d0cec1;
+    content: '';
+}
+
+.beam-hook--right {
+    left: 70%;
+    transform: translateX(-50%) scaleX(-1);
+}
+
+.girder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(calc(100% - 32px), 760px);
+    height: 112px;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0 13px 5px rgba(0, 0, 0, 0.42));
+}
+
+.girder-web {
+    position: absolute;
+    top: 19px;
+    right: 0;
+    bottom: 19px;
+    left: 0;
+    z-index: 1;
+    border-right: 4px solid #651719;
+    border-left: 4px solid #651719;
+    background: linear-gradient(180deg, #ff5a4c 0%, #df2928 30%, #b41620 78%, #78151b 100%);
+    box-shadow: inset 0 5px 0 rgba(255, 179, 130, 0.5), inset 0 -5px 0 rgba(73, 0, 12, 0.36);
+}
+
+.girder-flange {
+    position: absolute;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    height: 27px;
+    border: 4px solid #641519;
+    border-radius: 7px;
+    background: linear-gradient(180deg, #ff7460 0%, #f03b31 35%, #bd1c24 78%, #85161d 100%);
+    box-shadow: inset 0 3px 0 rgba(255, 220, 171, 0.58), inset 0 -3px 0 rgba(75, 0, 12, 0.45);
+}
+
+.girder-flange--top {
+    top: 0;
+}
+
+.girder-flange--bottom {
+    bottom: 0;
+    background: linear-gradient(180deg, #ed4034 0%, #bd1d26 62%, #80151d 100%);
+}
+
+.girder-bolts {
+    position: absolute;
+    top: 50%;
+    right: 17px;
+    left: 17px;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.girder-bolts span {
+    width: 11px;
+    aspect-ratio: 1;
+    border: 2px solid #76161d;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #ffe19d, #e69945 48%, #8a361d 76%);
+    box-shadow: 1px 2px 1px rgba(49, 0, 5, 0.55);
+}
+
+@media (max-width: 480px) {
+    .girder {
+        height: 92px;
+    }
+
+    .girder-web {
+        top: 16px;
+        bottom: 16px;
+    }
+
+    .girder-flange {
+        height: 23px;
+    }
+
+    .girder-bolts {
+        right: 10px;
+        left: 10px;
+    }
+
+    .girder-bolts span {
+        width: 8px;
+    }
+}
