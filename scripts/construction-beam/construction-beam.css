@@ -54,68 +54,23 @@ body {
     position: absolute;
     top: 0;
     left: 30%;
-    width: 9px;
-    height: calc(50% - 91px);
+    z-index: 1;
+    width: 18px;
+    height: calc(50% - 38px);
     transform: translateX(-50%);
-    background: linear-gradient(90deg, #454b52, #d3d4c9 45%, #656b70);
-    border-right: 2px solid #30343a;
-    box-shadow: 2px 0 3px rgba(0, 0, 0, 0.35);
+    background: radial-gradient(ellipse 7px 11px at 50% 50%, transparent 0 31%, #353b40 39%, #bdbcb3 48%, #e0ddd1 58%, #666d70 75%, #343a3e 88%, transparent 96%) 0 0 / 18px 22px repeat-y;
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
 }
 
 .beam-cable--right {
     left: 70%;
 }
 
-.beam-anchor {
-    position: absolute;
-    top: 0;
-    left: calc(30% - 12px);
-    width: 33px;
-    height: 12px;
-    border: 3px solid #34383c;
-    border-top: 0;
-    border-radius: 0 0 5px 5px;
-    background: linear-gradient(90deg, #777d81, #e2ded0 48%, #85898a);
-}
-
-.beam-anchor--right {
-    left: calc(70% - 12px);
-}
-
-.beam-hook {
-    position: absolute;
-    top: calc(50% - 91px);
-    left: 30%;
-    z-index: 4;
-    width: 45px;
-    height: 66px;
-    transform: translateX(-50%);
-    border-left: 8px solid #555b60;
-    border-bottom: 8px solid #8f9697;
-    border-radius: 0 0 0 23px;
-    filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.45));
-}
-
-.beam-hook::after {
-    position: absolute;
-    right: 100%;
-    bottom: -8px;
-    width: 15px;
-    height: 8px;
-    border-radius: 4px 0 0 4px;
-    background: #d0cec1;
-    content: '';
-}
-
-.beam-hook--right {
-    left: 70%;
-    transform: translateX(-50%) scaleX(-1);
-}
-
 .girder {
     position: absolute;
     top: 50%;
     left: 50%;
+    z-index: 2;
     width: min(calc(100% - 32px), 760px);
     height: 112px;
     transform: translate(-50%, -50%);
@@ -125,9 +80,9 @@ body {
 .girder-web {
     position: absolute;
     top: 19px;
-    right: 0;
+    right: 10px;
     bottom: 19px;
-    left: 0;
+    left: 10px;
     z-index: 1;
     border-right: 4px solid #651719;
     border-left: 4px solid #651719;
