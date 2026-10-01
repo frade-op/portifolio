@@ -18,6 +18,7 @@
   #wrapper {
     overflow-x: hidden;
     overflow-y: auto;
+    scroll-behavior: smooth;
     position: fixed;
     top: 0;
     left: 0;
@@ -63,7 +64,98 @@
     color: #dfe7ff;
     font-size: 1.06rem;
   }
+
+  .navbar-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.85);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .navbar-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #f5f7ff;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  .navbar-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .navbar-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: max-content;
+    min-width: 200px;
+    padding: 80px 32px 24px;
+    background: rgba(15, 23, 42, 0.95);
+    border-left: 1px solid rgba(148, 163, 184, 0.35);
+    box-shadow: -20px 0 60px rgba(0, 0, 0, 0.35);
+    transform: translateX(100%);
+    transition: transform 1s ease;
+    z-index: 999;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .sidebar nav a {
+    color: #dfe7ff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    white-space: nowrap;
+  }
+
+  .sidebar nav a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
 </style>
+
+<button id="navbar-toggle" class="navbar-toggle" aria-label="Abrir menu">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<aside id="sidebar" class="sidebar">
+  <nav>
+    <a href="#">Início</a>
+    <a href="#">Sobre</a>
+    <a href="#">Projetos</a>
+    <a href="#">Contato</a>
+  </nav>
+</aside>
 
 <div id="wrapper">
   <div id="container-1" class="quake-shell">
@@ -175,27 +267,41 @@
     animate();
   }
 
-  window.addEventListener('DOMContentLoaded', () => {
-    triggerEarthquake({
-      target: quakeShell1,
-      duration: 1200,
-      intensity: 10,
-      speed: 30,
-      mode: 'shaky'
-    });
-  });
+  // window.addEventListener('DOMContentLoaded', () => {
+  //   triggerEarthquake({
+  //     target: quakeShell1,
+  //     duration: 1200,
+  //     intensity: 10,
+  //     speed: 30,
+  //     mode: 'shaky'
+  //   });
+  // });
 
-  setTimeout(() => {
-    triggerEarthquake({
-      target: quakeShell2,
-      duration: 1200,
-      intensity: 10,
-      speed: 30,
-      mode: 'shaky'
-    });
-  }, 5000);
+  // setTimeout(() => {
+  //   triggerEarthquake({
+  //     target: quakeShell2,
+  //     duration: 1200,
+  //     intensity: 10,
+  //     speed: 30,
+  //     mode: 'shaky'
+  //   });
+  // }, 5000);
 
   // Como disparar manualmente depois:
   // triggerEarthquake({ target: quakeShell, duration: 900, intensity: 14, speed: 25, mode: 'rotate' });
   // triggerEarthquake({ target: quakeShell, duration: 1500, intensity: 22, speed: 18, mode: 'diagonal' });
+
+  const navbarToggle = document.getElementById('navbar-toggle');
+  const sidebar = document.getElementById('sidebar');
+
+  function shakeContainers() {
+    triggerEarthquake({ target: quakeShell1, duration: 900, intensity: 14, speed: 25, mode: 'shaky' });
+    triggerEarthquake({ target: quakeShell2, duration: 900, intensity: 14, speed: 25, mode: 'shaky' });
+  }
+
+  navbarToggle.addEventListener('click', () => {
+    navbarToggle.classList.toggle('open');
+    sidebar.classList.toggle('open');
+    shakeContainers();
+  });
 </script>
