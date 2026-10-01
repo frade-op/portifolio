@@ -75,6 +75,8 @@ body {
     height: 112px;
     transform: translate(-50%, -50%);
     filter: drop-shadow(0 13px 5px rgba(0, 0, 0, 0.42));
+    pointer-events: initial !important;
+    cursor: none !important;
 }
 
 .girder-web {
