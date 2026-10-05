@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Felipe — Desenvolvedor | Construindo sistemas</title>
+  <meta name="description" content="Portfólio de desenvolvedor focado em construir e arquitetar sistemas e soluções.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Fundo: fim de tarde, prédios e guindastes -->
+  <div class="bg" id="bg" aria-hidden="true"><canvas id="skyline"></canvas></div>
+
+  <!-- Cursor personalizado (fica atrás da viga) -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <svg viewBox="0 0 24 28" width="24" height="28">
+      <path d="M2 2 L2 22 L7.5 17.2 L11.4 26 L15 24.4 L11.2 15.8 L18.5 15.8 Z" fill="#ffc83d" stroke="#2a1a05" stroke-width="2" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <!-- Viga suspensa por correntes -->
+  <div class="beam-layer" id="beam-layer" aria-hidden="true">
+    <div class="beam-rig">
+      <div class="chain chain--left"></div>
+      <div class="chain chain--right"></div>
+      <div class="girder">
+        <div class="girder-web"></div>
+        <div class="girder-flange girder-flange--top"></div>
+        <div class="girder-flange girder-flange--bottom"></div>
+        <div class="girder-bolts">
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <i class="lug lug--left"></i><i class="lug lug--right"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu lateral: um prédio -->
+  <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="building">
+    <span></span><span></span><span></span>
+  </button>
+
+  <aside id="building" class="building" aria-label="Menu principal" inert>
+    <div class="bld-roof">
+      <span class="bld-antenna"></span>
+      <span class="bld-tank"></span>
+    </div>
+    <div class="bld-upper" id="bld-upper" aria-hidden="true"></div>
+    <nav class="bld-floors">
+      <a class="floor" href="#inicio"><i class="win lit"></i><span><small>5º andar</small>Início</span><i class="win"></i></a>
+      <a class="floor" href="#sobre"><i class="win"></i><span><small>4º andar</small>Sobre</span><i class="win lit"></i></a>
+      <a class="floor" href="#habilidades"><i class="win lit"></i><span><small>3º andar</small>Habilidades</span><i class="win lit"></i></a>
+      <a class="floor" href="#projetos"><i class="win"></i><span><small>2º andar</small>Projetos</span><i class="win lit"></i></a>
+      <a class="floor" href="#contato"><i class="win lit"></i><span><small>1º andar</small>Contato</span><i class="win"></i></a>
+    </nav>
+    <div class="bld-lobby" aria-hidden="true"><i></i><i></i></div>
+  </aside>
+
+  <div id="wrapper">
+    <div id="shell" class="quake-shell">
+      <main class="content">
+
+        <section id="inicio" class="hero">
+          <p class="kicker">// obra em andamento</p>
+          <h1>Felipe<span>.dev</span></h1>
+          <p class="lead">Desenvolvedor de software. Eu <strong>construo</strong> sistemas e soluções — da fundação à fachada — com planta, método e cuidado com cada parafuso.</p>
+          <div class="actions">
+            <a class="btn btn--primary" href="#projetos">Ver obras</a>
+            <a class="btn" href="#contato">Contratar a obra</a>
+          </div>
+        </section>
+
+        <section id="sobre" class="panel">
+          <p class="kicker">// 01 · planta baixa</p>
+          <h2>Sobre</h2>
+          <p>Penso em software como arquitetura: toda boa solução começa com um terreno bem entendido, uma planta clara e uma estrutura que aguenta crescer. Gosto de transformar problemas reais em sistemas simples de manter.</p>
+          <p>Escreva aqui um pouco da sua história, sua experiência e o que você procura em novos projetos.</p>
+        </section>
+
+        <section id="habilidades" class="panel">
+          <p class="kicker">// 02 · materiais e ferramentas</p>
+          <h2>Habilidades</h2>
+          <div class="grid">
+            <article class="card">
+              <h3><b>01</b> Fundação</h3>
+              <p>O que sustenta tudo.</p>
+              <ul class="chips"><li>SQL</li><li>APIs REST</li><li>Node.js</li><li>Git</li></ul>
+            </article>
+            <article class="card">
+              <h3><b>02</b> Estrutura</h3>
+              <p>Arquitetura e organização.</p>
+              <ul class="chips"><li>Clean Architecture</li><li>Design Patterns</li><li>Testes</li><li>CI/CD</li></ul>
+            </article>
+            <article class="card">
+              <h3><b>03</b> Acabamento</h3>
+              <p>O que o usuário vê e toca.</p>
+              <ul class="chips"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>UX</li></ul>
+            </article>
+          </div>
+        </section>
+
+        <section id="projetos" class="panel">
+          <p class="kicker">// 03 · obras entregues</p>
+          <h2>Projetos</h2>
+          <div class="grid">
+            <article class="card">
+              <span class="tag">Obra 01</span>
+              <h3>Nome do projeto</h3>
+              <p>Descreva o problema que resolveu, a arquitetura escolhida e o resultado.</p>
+              <ul class="chips"><li>Stack</li><li>Stack</li></ul>
+              <a href="#">Ver projeto →</a>
+            </article>
+            <article class="card">
+              <span class="tag">Obra 02</span>
+              <h3>Nome do projeto</h3>
+              <p>Descreva o problema que resolveu, a arquitetura escolhida e o resultado.</p>
+              <ul class="chips"><li>Stack</li><li>Stack</li></ul>
+              <a href="#">Ver projeto →</a>
+            </article>
+            <article class="card">
+              <span class="tag">Obra 03</span>
+              <h3>Nome do projeto</h3>
+              <p>Descreva o problema que resolveu, a arquitetura escolhida e o resultado.</p>
+              <ul class="chips"><li>Stack</li><li>Stack</li></ul>
+              <a href="#">Ver projeto →</a>
+            </article>
+          </div>
+        </section>
+
+        <section id="contato" class="panel">
+          <p class="kicker">// 04 · canteiro de obras</p>
+          <h2>Contato</h2>
+          <p>Tem um sistema para tirar do papel? Vamos conversar.</p>
+          <div class="actions">
+            <a class="btn btn--primary" href="mailto:seu@email.com">seu@email.com</a>
+            <a class="btn" href="https://github.com/frade-op" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </section>
+
+        <footer class="footer">© <span id="year"></span> Felipe · Construído tijolo por tijolo (HTML, CSS e JS).</footer>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
