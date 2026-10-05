@@ -105,6 +105,12 @@
     document.title = t('doc.title');
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute('content', t('doc.desc'));
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute('content', t('doc.title'));
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    if (ogDescription) ogDescription.setAttribute('content', t('doc.desc'));
+    const ogLocale = document.querySelector('meta[property="og:locale"]');
+    if (ogLocale) ogLocale.setAttribute('content', current === 'en' ? 'en_US' : 'pt_BR');
 
     document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
     document.querySelectorAll('[data-i18n-html]').forEach((el) => { el.innerHTML = t(el.dataset.i18nHtml); });

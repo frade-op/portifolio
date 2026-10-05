@@ -105,6 +105,22 @@
     }
   }
 
+  function scrollToHash(hash, behavior = reduceMotion ? 'auto' : 'smooth') {
+    const target = hash ? document.getElementById(hash.slice(1)) : null;
+    if (hash && !target) return;
+    const top = target
+      ? target.getBoundingClientRect().top - wrapper.getBoundingClientRect().top + wrapper.scrollTop
+      : 0;
+    wrapper.scrollTo({ top, behavior });
+  }
+
+  function navigateTo(target) {
+    if (window.location.hash !== `#${target.id}`) {
+      window.history.pushState(null, '', `#${target.id}`);
+    }
+    scrollToHash(`#${target.id}`);
+  }
+
   building.addEventListener('animationend', (e) => {
     if (e.animationName === 'bld-in') {
       building.classList.remove('opening');
@@ -116,13 +132,14 @@
 
   toggle.addEventListener('click', () => setMenu(!menuOpen));
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && menuOpen) setMenu(false); });
+  window.addEventListener('popstate', () => scrollToHash(window.location.hash));
 
   building.querySelectorAll('a.floor').forEach((link) => {
     link.addEventListener('click', (e) => {
       const target = document.querySelector(link.getAttribute('href'));
       if (!target) return;
       e.preventDefault();
-      wrapper.scrollTo({ top: target.offsetTop, behavior: reduceMotion ? 'auto' : 'smooth' });
+      navigateTo(target);
       setMenu(false);
     });
   });
@@ -132,7 +149,7 @@
       const target = document.querySelector(link.getAttribute('href'));
       if (!target) return;
       e.preventDefault();
-      wrapper.scrollTo({ top: target.offsetTop, behavior: reduceMotion ? 'auto' : 'smooth' });
+      navigateTo(target);
     });
   });
 

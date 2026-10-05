@@ -443,7 +443,8 @@ body.custom-cursor .menu-toggle { cursor: pointer !important; }
   text-transform: uppercase;
   color: #b5bedb;
 }
-.floor:hover, .floor:focus-visible { outline: none; background: linear-gradient(90deg, #4a557d, #5a6894 50%, #4a557d); }
+.floor:hover, .floor:focus-visible { background: linear-gradient(90deg, #4a557d, #5a6894 50%, #4a557d); }
+.floor:focus-visible { outline: 3px solid var(--amber); outline-offset: -5px; }
 .floor:hover .win, .floor:focus-visible .win {
   background:
     linear-gradient(#1a2033, #1a2033) 50% 0 / 3px 100% no-repeat,
@@ -477,8 +478,10 @@ body.custom-cursor .menu-toggle { cursor: pointer !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  #wrapper { scroll-behavior: auto; }
   .beam-rig { animation-duration: 120s; }
   .building.opening, .building.closing { animation-duration: 0.01s; }
+  .bld-antenna::after { animation: none; }
 }
 
 /* ---------- Idioma e experi�ncia ---------- */
