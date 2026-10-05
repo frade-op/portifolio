@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Felipe — Desenvolvedor | Construindo sistemas</title>
-  <meta name="description" content="Portfólio de desenvolvedor focado em construir e arquitetar sistemas e soluções.">
+  <title>Felipe Frade — Desenvolvedor Full Stack</title>
+  <meta name="description" content="Portfólio de Felipe Frade, desenvolvedor Full Stack que constrói e arquiteta sistemas e soluções.">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -41,109 +41,161 @@
     <span></span><span></span><span></span>
   </button>
 
-  <aside id="building" class="building" aria-label="Menu principal" inert>
+  <aside id="building" class="building" aria-label="Menu principal" data-i18n-aria="menu.label" inert>
     <div class="bld-roof">
       <span class="bld-antenna"></span>
       <span class="bld-tank"></span>
     </div>
     <div class="bld-upper" id="bld-upper" aria-hidden="true"></div>
     <nav class="bld-floors">
-      <a class="floor" href="#inicio"><i class="win lit"></i><span><small>5º andar</small>Início</span><i class="win"></i></a>
-      <a class="floor" href="#sobre"><i class="win"></i><span><small>4º andar</small>Sobre</span><i class="win lit"></i></a>
-      <a class="floor" href="#habilidades"><i class="win lit"></i><span><small>3º andar</small>Habilidades</span><i class="win lit"></i></a>
-      <a class="floor" href="#projetos"><i class="win"></i><span><small>2º andar</small>Projetos</span><i class="win lit"></i></a>
-      <a class="floor" href="#contato"><i class="win lit"></i><span><small>1º andar</small>Contato</span><i class="win"></i></a>
+      <a class="floor" href="#inicio"><i class="win lit"></i><span><small data-i18n="floor.5">5º andar</small><b data-i18n="nav.home">Início</b></span><i class="win"></i></a>
+      <a class="floor" href="#sobre"><i class="win"></i><span><small data-i18n="floor.4">4º andar</small><b data-i18n="nav.about">Sobre</b></span><i class="win lit"></i></a>
+      <a class="floor" href="#habilidades"><i class="win lit"></i><span><small data-i18n="floor.3">3º andar</small><b data-i18n="nav.skills">Habilidades</b></span><i class="win lit"></i></a>
+      <a class="floor" href="#experiencia"><i class="win"></i><span><small data-i18n="floor.2">2º andar</small><b data-i18n="nav.experience">Experiência</b></span><i class="win lit"></i></a>
+      <a class="floor" href="#contato"><i class="win lit"></i><span><small data-i18n="floor.1">1º andar</small><b data-i18n="nav.contact">Contato</b></span><i class="win"></i></a>
     </nav>
     <div class="bld-lobby" aria-hidden="true"><i></i><i></i></div>
   </aside>
+
+  <div class="lang" role="group" aria-label="Idioma / Language">
+    <button type="button" data-lang="pt" aria-pressed="true">PT</button>
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+  </div>
 
   <div id="wrapper">
     <div id="shell" class="quake-shell">
       <main class="content">
 
         <section id="inicio" class="hero">
-          <p class="kicker">// obra em andamento</p>
-          <h1>Felipe<span>.dev</span></h1>
-          <p class="lead">Desenvolvedor de software. Eu <strong>construo</strong> sistemas e soluções — da fundação à fachada — com planta, método e cuidado com cada parafuso.</p>
+          <p class="kicker" data-i18n="hero.kicker">// obra em andamento</p>
+          <h1>Felipe<span> Frade</span></h1>
+          <p class="role" data-i18n="hero.role">Desenvolvedor Full Stack</p>
+          <p class="lead" data-i18n-html="hero.lead">Eu <strong>construo</strong> aplicações web — da fundação à fachada — com experiência em liderança técnica, ambientes ágeis e equipes internacionais.</p>
           <div class="actions">
-            <a class="btn btn--primary" href="#projetos">Ver obras</a>
-            <a class="btn" href="#contato">Contratar a obra</a>
+            <a class="btn btn--primary" href="#experiencia" data-i18n="hero.cta1">Ver experiência</a>
+            <a class="btn" href="#contato" data-i18n="hero.cta2">Contratar a obra</a>
           </div>
         </section>
 
         <section id="sobre" class="panel">
-          <p class="kicker">// 01 · planta baixa</p>
-          <h2>Sobre</h2>
-          <p>Penso em software como arquitetura: toda boa solução começa com um terreno bem entendido, uma planta clara e uma estrutura que aguenta crescer. Gosto de transformar problemas reais em sistemas simples de manter.</p>
-          <p>Escreva aqui um pouco da sua história, sua experiência e o que você procura em novos projetos.</p>
+          <p class="kicker" data-i18n="about.kicker">// 01 · planta baixa</p>
+          <h2 data-i18n="nav.about">Sobre</h2>
+          <p data-i18n="about.p1">Desenvolvedor Full Stack com experiência no desenvolvimento e manutenção de aplicações web, na evolução de sistemas legados e na criação de arquiteturas front-end mais modernas.</p>
+          <p data-i18n="about.p2">Atuei como líder técnico de uma equipe de 5 pessoas, em ambientes ágeis e em colaboração com equipes internacionais. Baseado em Guaíba-RS.</p>
         </section>
 
         <section id="habilidades" class="panel">
-          <p class="kicker">// 02 · materiais e ferramentas</p>
-          <h2>Habilidades</h2>
+          <p class="kicker" data-i18n="skills.kicker">// 02 · materiais e ferramentas</p>
+          <h2 data-i18n="nav.skills">Habilidades</h2>
           <div class="grid">
             <article class="card">
-              <h3><b>01</b> Fundação</h3>
-              <p>O que sustenta tudo.</p>
-              <ul class="chips"><li>SQL</li><li>APIs REST</li><li>Node.js</li><li>Git</li></ul>
+              <h3><b>01</b> <span data-i18n="skills.main">Stack principal</span></h3>
+              <ul class="chips">
+                <li>JavaScript</li>
+                <li>TypeScript</li>
+                <li>Angular</li>
+                <li>PHP</li>
+                <li>Laravel</li>
+                <li>MySQL</li>
+                <li>PostgreSQL</li>
+                <li>Docker</li>
+                <li>Jenkins</li>
+                <li>AWS</li>
+                <li>Git</li>
+                <li>Jira</li>
+              </ul>
             </article>
             <article class="card">
-              <h3><b>02</b> Estrutura</h3>
-              <p>Arquitetura e organização.</p>
-              <ul class="chips"><li>Clean Architecture</li><li>Design Patterns</li><li>Testes</li><li>CI/CD</li></ul>
+              <h3><b>02</b> <span data-i18n="skills.secondary">Stacks secundárias</span></h3>
+              <ul class="chips">
+                <li>CodeIgniter</li>
+                <li>React</li>
+                <li>Next.js</li>
+                <li>React Native</li>
+                <li>Python</li>
+                <li>Selenium</li>
+                <li>Flask</li>
+                <li>Node.js</li>
+                <li>GraphQL</li>
+                <li>Java</li>
+                <li>Spring Boot</li>
+              </ul>
             </article>
             <article class="card">
-              <h3><b>03</b> Acabamento</h3>
-              <p>O que o usuário vê e toca.</p>
-              <ul class="chips"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>UX</li></ul>
+              <h3><b>03</b> <span data-i18n="skills.languages">Idiomas</span></h3>
+              <ul class="chips">
+                <li data-i18n="lang.pt">Português — nativo</li>
+                <li data-i18n="lang.en">Inglês — fluente</li>
+              </ul>
             </article>
           </div>
         </section>
 
-        <section id="projetos" class="panel">
-          <p class="kicker">// 03 · obras entregues</p>
-          <h2>Projetos</h2>
-          <div class="grid">
-            <article class="card">
-              <span class="tag">Obra 01</span>
-              <h3>Nome do projeto</h3>
-              <p>Descreva o problema que resolveu, a arquitetura escolhida e o resultado.</p>
-              <ul class="chips"><li>Stack</li><li>Stack</li></ul>
-              <a href="#">Ver projeto →</a>
+        <section id="experiencia" class="panel">
+          <p class="kicker" data-i18n="exp.kicker">// 03 · trajetória</p>
+          <h2 data-i18n="nav.experience">Experiência</h2>
+          <div class="jobs">
+            <article class="card job">
+              <span class="tag">05/2024 – 07/2026</span>
+              <h3 data-i18n="job1.role">Desenvolvedor Front-end Pleno</h3>
+              <p class="company">Climber Revenue Strategy</p>
+              <ul>
+                <li data-i18n-html="job1.b1">Manutenção de aplicações <strong>Angular</strong> legadas e desenvolvimento de uma nova arquitetura front-end mais moderna e alinhada às necessidades do produto;</li>
+                <li data-i18n="job1.b2">Colaboração com equipes internacionais;</li>
+                <li data-i18n-html="job1.b3">Utilização de serviços da <strong>AWS</strong> e ferramentas de IA generativa.</li>
+              </ul>
             </article>
-            <article class="card">
-              <span class="tag">Obra 02</span>
-              <h3>Nome do projeto</h3>
-              <p>Descreva o problema que resolveu, a arquitetura escolhida e o resultado.</p>
-              <ul class="chips"><li>Stack</li><li>Stack</li></ul>
-              <a href="#">Ver projeto →</a>
+            <article class="card job">
+              <span class="tag">08/2022 – 05/2024</span>
+              <h3 data-i18n="job2.role">Líder Técnico (Tech Lead)</h3>
+              <p class="company">CG Contadores</p>
+              <ul>
+                <li data-i18n="job2.b1">Liderança técnica de uma equipe de 5 pessoas;</li>
+                <li data-i18n="job2.b2">Mentoria e suporte técnico a desenvolvedores juniores;</li>
+                <li data-i18n-html="job2.b3">Gestão de pipelines e deploys utilizando <strong>Docker</strong> e <strong>Jenkins</strong>;</li>
+                <li data-i18n="job2.b4">Garantia da estabilidade dos sistemas em ambientes de homologação e produção;</li>
+                <li data-i18n-html="job2.b5">Atuação em parceria com a Product Manager no planejamento de sprints, refinamento de requisitos, priorização de demandas e gestão do backlog no <strong>Jira</strong>.</li>
+              </ul>
             </article>
-            <article class="card">
-              <span class="tag">Obra 03</span>
-              <h3>Nome do projeto</h3>
-              <p>Descreva o problema que resolveu, a arquitetura escolhida e o resultado.</p>
-              <ul class="chips"><li>Stack</li><li>Stack</li></ul>
-              <a href="#">Ver projeto →</a>
+            <article class="card job">
+              <span class="tag">09/2019 – 08/2022</span>
+              <h3 data-i18n="job3.role">Desenvolvedor Full Stack</h3>
+              <p class="company">CG Contadores</p>
+              <ul>
+                <li data-i18n-html="job3.b1">Desenvolvimento e manutenção de aplicações utilizando <strong>Angular</strong>, <strong>Laravel</strong> e <strong>MySQL</strong>;</li>
+                <li data-i18n="job3.b2">Manutenção e evolução de sistemas legados;</li>
+                <li data-i18n-html="job3.b3">Criação e consumo de <strong>APIs REST</strong>.</li>
+              </ul>
+            </article>
+            <article class="card job">
+              <span class="tag">10/2018 – 09/2019</span>
+              <h3 data-i18n="job4.role">Desenvolvedor Web Júnior (Estágio)</h3>
+              <p class="company">Ondaweb</p>
+              <ul>
+                <li data-i18n-html="job4.b1">Desenvolvimento e manutenção de aplicações em <strong>PHP</strong>, <strong>WordPress</strong> e <strong>JavaScript</strong>;</li>
+                <li data-i18n-html="job4.b2">Publicação e gerenciamento de arquivos em servidores via <strong>FileZilla</strong>.</li>
+              </ul>
             </article>
           </div>
         </section>
 
         <section id="contato" class="panel">
-          <p class="kicker">// 04 · canteiro de obras</p>
-          <h2>Contato</h2>
-          <p>Tem um sistema para tirar do papel? Vamos conversar.</p>
+          <p class="kicker" data-i18n="contact.kicker">// 04 · canteiro de obras</p>
+          <h2 data-i18n="nav.contact">Contato</h2>
+          <p data-i18n="contact.text">Tem um sistema para tirar do papel? Vamos conversar.</p>
           <div class="actions">
-            <a class="btn btn--primary" href="mailto:seu@email.com">seu@email.com</a>
+            <a class="btn btn--primary" href="mailto:felipe.pereira.developer@gmail.com">felipe.pereira.developer@gmail.com</a>
+            <a class="btn" href="https://www.linkedin.com/in/frade-op" target="_blank" rel="noopener">LinkedIn</a>
             <a class="btn" href="https://github.com/frade-op" target="_blank" rel="noopener">GitHub</a>
-            <a class="btn" href="#" target="_blank" rel="noopener">LinkedIn</a>
           </div>
         </section>
 
-        <footer class="footer">© <span id="year"></span> Felipe · Construído tijolo por tijolo (HTML, CSS e JS).</footer>
+        <footer class="footer">© <span id="year"></span> Felipe Frade Pereira · <span data-i18n="footer">Construído tijolo por tijolo (HTML, CSS e JS).</span></footer>
       </main>
     </div>
   </div>
 
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

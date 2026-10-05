@@ -76,12 +76,18 @@
     upper.appendChild(row);
   }
 
+  function updateToggleLabel() {
+    toggle.setAttribute('aria-label', window.I18N.t(menuOpen ? 'menu.close' : 'menu.open'));
+  }
+  document.addEventListener('langchange', updateToggleLabel);
+  updateToggleLabel();
+
   function setMenu(open) {
     menuOpen = open;
     clearTimeout(thudTimer);
     toggle.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    updateToggleLabel();
     building.inert = !open;
 
     if (open) {
