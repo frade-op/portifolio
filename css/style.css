@@ -475,6 +475,14 @@ body.custom-cursor .menu-toggle { cursor: pointer !important; }
   .building { width: 210px; }
   .panel { padding: 24px 18px; }
   .beam-rig { left: 42%; width: 70vw; }
+
+  #contato .actions .btn { flex: 1 1 0; min-width: 0; padding: 12px 8px; text-align: center; }
+  #contato .actions .btn--primary { flex: 1 0 100%; font-size: clamp(0.65rem, 3.6vw, 0.85rem); white-space: nowrap; }
+}
+
+@media (max-width: 760px) {
+/* Celular: sem a viga subindo e descendo, para não atrapalhar a leitura */
+  .beam-layer { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

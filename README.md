@@ -28,11 +28,11 @@ Com as ideias validadas, usei **IA** para dar vida ao conjunto: unir os scripts 
 ## O que a página tem
 
 - **Menu lateral em forma de prédio.** Ao abrir, o prédio é empurrado para o lado e causa um terremoto que sacode o conteúdo, o fundo e a viga. Cada andar é um link.
-- **Viga suspensa.** Uma viga com correntes sobe lentamente do fundo da página até o topo e desce de novo.
+- **Viga suspensa.** Uma viga com correntes sobe lentamente do fundo da página até o topo e desce de novo. Em telas de toque (celular) ela fica oculta para não atrapalhar a leitura.
 - **Cursor atrás da viga.** O cursor é personalizado e passa por trás da viga e das correntes, como se desaparecesse atrás delas.
 - **Fundo de fim de tarde.** Um céu de pôr do sol desenhado em canvas, com prédios em camadas, guindastes, esqueletos de obra e janelas acesas.
 - **Português e inglês.** Um botão alterna o idioma. A escolha fica salva no navegador e, na primeira visita, segue o idioma dele.
-- **Acessibilidade.** Quem usa "reduzir movimento" no sistema não vê o terremoto e vê a viga mais lenta. A tecla `Esc` fecha o menu.
+- **Acessibilidade.** Quem usa "reduzir movimento" no sistema não vê o terremoto e vê a viga mais lenta (isso vale também no celular, onde o modo de economia de energia pode ativar essa opção). A tecla `Esc` fecha o menu.
 
 ## Estrutura
 
@@ -84,11 +84,11 @@ Once the ideas were proven, I used **AI** to bring it all to life: merging the s
 ## What the page has
 
 - **Side menu shaped like a building.** When opened, the building is pushed in from the side and causes an earthquake that shakes the content, the background and the beam. Each floor is a link.
-- **Hanging beam.** A beam with chains slowly rises from the bottom of the page to the top and comes back down.
+- **Hanging beam.** A beam with chains slowly rises from the bottom of the page to the top and comes back down. It is hidden on touch screens (phones) so it does not get in the way of reading.
 - **Cursor behind the beam.** The custom cursor passes behind the beam and chains, as if disappearing behind them.
 - **Late-afternoon background.** A sunset sky drawn on a canvas, with layered buildings, cranes, building frames under construction and lit windows.
 - **Portuguese and English.** A button switches the language. The choice is saved in the browser and, on the first visit, follows the browser language.
-- **Accessibility.** Users who prefer reduced motion see no earthquake and a slower beam. The `Esc` key closes the menu.
+- **Accessibility.** Users who prefer reduced motion see no earthquake and a slower beam (also on phones, where battery-saver modes may enable this setting). The `Esc` key closes the menu.
 
 ## Structure
 
