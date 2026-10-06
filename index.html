@@ -54,10 +54,11 @@
     </div>
     <div class="bld-upper" id="bld-upper" aria-hidden="true"></div>
     <nav class="bld-floors">
-      <a class="floor" href="#inicio"><i class="win lit"></i><span><small data-i18n="floor.5">5º andar</small><b data-i18n="nav.home">Início</b></span><i class="win"></i></a>
-      <a class="floor" href="#sobre"><i class="win"></i><span><small data-i18n="floor.4">4º andar</small><b data-i18n="nav.about">Sobre</b></span><i class="win lit"></i></a>
-      <a class="floor" href="#habilidades"><i class="win lit"></i><span><small data-i18n="floor.3">3º andar</small><b data-i18n="nav.skills">Habilidades</b></span><i class="win lit"></i></a>
-      <a class="floor" href="#experiencia"><i class="win"></i><span><small data-i18n="floor.2">2º andar</small><b data-i18n="nav.experience">Experiência</b></span><i class="win lit"></i></a>
+      <a class="floor" href="#inicio"><i class="win lit"></i><span><small data-i18n="floor.6">6º andar</small><b data-i18n="nav.home">Início</b></span><i class="win"></i></a>
+      <a class="floor" href="#sobre"><i class="win"></i><span><small data-i18n="floor.5">5º andar</small><b data-i18n="nav.about">Sobre</b></span><i class="win lit"></i></a>
+      <a class="floor" href="#habilidades"><i class="win lit"></i><span><small data-i18n="floor.4">4º andar</small><b data-i18n="nav.skills">Habilidades</b></span><i class="win lit"></i></a>
+      <a class="floor" href="#experiencia"><i class="win"></i><span><small data-i18n="floor.3">3º andar</small><b data-i18n="nav.experience">Experiência</b></span><i class="win lit"></i></a>
+      <a class="floor" href="#faq"><i class="win lit"></i><span><small data-i18n="floor.2">2º andar</small><b data-i18n="nav.faq">FAQ</b></span><i class="win"></i></a>
       <a class="floor" href="#contato"><i class="win lit"></i><span><small data-i18n="floor.1">1º andar</small><b data-i18n="nav.contact">Contato</b></span><i class="win"></i></a>
     </nav>
     <div class="bld-lobby" aria-hidden="true"><i></i><i></i></div>
@@ -66,6 +67,16 @@
   <div class="lang" role="group" aria-label="Idioma / Language">
     <button type="button" data-lang="pt" aria-pressed="true">PT</button>
     <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    <button type="button" id="sound-toggle" aria-pressed="false" aria-label="Ativar som" data-i18n-aria="sound.enable" title="Ativar som">
+      <svg class="sound-icon sound-icon--muted" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <path d="M4 9v6h4l5 4V5L8 9H4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="m17 9 5 6m0-6-5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <svg class="sound-icon sound-icon--on" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <path d="M4 9v6h4l5 4V5L8 9H4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M16 9a5 5 0 0 1 0 6m3-9a9 9 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
   </div>
 
   <div id="wrapper">
@@ -76,9 +87,9 @@
           <p class="kicker" data-i18n="hero.kicker">// obra em andamento</p>
           <h1>Felipe<span> Frade</span></h1>
           <p class="role" data-i18n="hero.role">Desenvolvedor de Software</p>
-          <p class="lead" data-i18n-html="hero.lead">Sou desenvolvedor de software e gosto de transformar desafios em soluções. Tenho experiência com diferentes sistemas, linguagens e tecnologias; desenvolvimento web é uma das frentes em que posso atuar.</p>
+          <div class="hero-spacer" aria-hidden="true"></div>
           <div class="actions">
-            <a class="btn btn--primary" href="#experiencia" data-i18n="hero.cta1">Ver experiência</a>
+            <a class="btn btn--primary" id="projects-cta" href="#faq" data-i18n="hero.cta1">Projetos?</a>
             <a class="btn" href="#contato" data-i18n="hero.cta2">Vamos conversar</a>
           </div>
         </section>
@@ -86,8 +97,8 @@
         <section id="sobre" class="panel">
           <p class="kicker" data-i18n="about.kicker">// 01 · planta baixa</p>
           <h2 data-i18n="nav.about">Sobre</h2>
-          <p data-i18n="about.p1">Sou desenvolvedor de software com experiência em diferentes contextos e etapas do desenvolvimento: criação e manutenção de sistemas, modernização de aplicações legadas, arquitetura, integrações e desenvolvimento web. Adapto minha abordagem às necessidades de cada projeto.</p>
-          <p data-i18n="about.p2">Minha trajetória inclui desenvolvimento full stack, atuação em front-end e liderança técnica de uma equipe de 5 pessoas, em ambientes ágeis e colaboração internacional. Sigo aprendendo e busco novos desafios para ampliar minha experiência e contribuir com soluções. Baseado em Guaíba-RS.</p>
+          <p data-i18n-html="about.p1">Sou desenvolvedor de software com experiência em diferentes contextos e etapas do desenvolvimento: <strong>criação e manutenção de sistemas</strong>, modernização de aplicações legadas, arquitetura, integrações e <strong>desenvolvimento web</strong>. Adapto minha abordagem às necessidades de cada projeto.</p>
+          <p data-i18n-html="about.p2">Minha trajetória inclui desenvolvimento full stack, atuação em front-end e <strong>liderança técnica</strong> de uma equipe de 5 pessoas, em ambientes ágeis e colaboração <strong>internacional</strong>. Sigo aprendendo e busco novos desafios para ampliar minha experiência e contribuir com soluções.</p>
         </section>
 
         <section id="habilidades" class="panel">
@@ -142,51 +153,129 @@
           <h2 data-i18n="nav.experience">Experiência</h2>
           <div class="jobs">
             <article class="card job">
-              <span class="tag">05/2024 – 07/2026</span>
-              <h3 data-i18n="job1.role">Desenvolvedor Front-end Pleno</h3>
-              <p class="company">Climber Revenue Strategy</p>
-              <ul>
-                <li data-i18n-html="job1.b1">Manutenção de aplicações <strong>Angular</strong> legadas e desenvolvimento de uma nova arquitetura front-end mais moderna e alinhada às necessidades do produto;</li>
-                <li data-i18n="job1.b2">Colaboração com equipes internacionais;</li>
-                <li data-i18n-html="job1.b3">Utilização de serviços da <strong>AWS</strong> e ferramentas de IA generativa.</li>
-              </ul>
+              <h3 class="job-heading">
+                <button class="job-toggle" type="button" id="job-question-1" aria-expanded="false" aria-controls="job-details-1">
+                  <span class="job-heading__main"><span class="tag">05/2024 – 07/2026</span><span class="job-title" data-i18n="job1.role">Desenvolvedor Front-end Pleno</span><span class="company">Climber Revenue Strategy</span></span>
+                  <span class="faq-icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq-answer job-details" id="job-details-1" role="region" aria-labelledby="job-question-1" aria-hidden="true" inert>
+                <div class="faq-answer__inner"><ul>
+                  <li data-i18n-html="job1.b1">Manutenção de aplicações <strong>Angular</strong> legadas e desenvolvimento de uma nova arquitetura front-end mais moderna e alinhada às necessidades do produto;</li>
+                  <li data-i18n="job1.b2">Colaboração com equipes internacionais;</li>
+                  <li data-i18n-html="job1.b3">Utilização de serviços da <strong>AWS</strong> e ferramentas de IA generativa.</li>
+                </ul></div>
+              </div>
             </article>
             <article class="card job">
-              <span class="tag">08/2022 – 05/2024</span>
-              <h3 data-i18n="job2.role">Líder Técnico (Tech Lead)</h3>
-              <p class="company">CG Contadores</p>
-              <ul>
-                <li data-i18n="job2.b1">Liderança técnica de uma equipe de 5 pessoas;</li>
-                <li data-i18n="job2.b2">Mentoria e suporte técnico a desenvolvedores juniores;</li>
-                <li data-i18n-html="job2.b3">Gestão de pipelines e deploys utilizando <strong>Docker</strong> e <strong>Jenkins</strong>;</li>
-                <li data-i18n="job2.b4">Garantia da estabilidade dos sistemas em ambientes de homologação e produção;</li>
-                <li data-i18n-html="job2.b5">Atuação em parceria com a Product Manager no planejamento de sprints, refinamento de requisitos, priorização de demandas e gestão do backlog no <strong>Jira</strong>.</li>
-              </ul>
+              <h3 class="job-heading">
+                <button class="job-toggle" type="button" id="job-question-2" aria-expanded="false" aria-controls="job-details-2">
+                  <span class="job-heading__main"><span class="tag">08/2022 – 05/2024</span><span class="job-title" data-i18n="job2.role">Líder Técnico (Tech Lead)</span><span class="company">CG Contadores</span></span>
+                  <span class="faq-icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq-answer job-details" id="job-details-2" role="region" aria-labelledby="job-question-2" aria-hidden="true" inert>
+                <div class="faq-answer__inner"><ul>
+                  <li data-i18n="job2.b1">Liderança técnica de uma equipe de 5 pessoas;</li>
+                  <li data-i18n="job2.b2">Mentoria e suporte técnico a desenvolvedores juniores;</li>
+                  <li data-i18n-html="job2.b3">Gestão de pipelines e deploys utilizando <strong>Docker</strong> e <strong>Jenkins</strong>;</li>
+                  <li data-i18n="job2.b4">Garantia da estabilidade dos sistemas em ambientes de homologação e produção;</li>
+                  <li data-i18n-html="job2.b5">Atuação em parceria com a Product Manager no planejamento de sprints, refinamento de requisitos, priorização de demandas e gestão do backlog no <strong>Jira</strong>.</li>
+                </ul></div>
+              </div>
             </article>
             <article class="card job">
-              <span class="tag">09/2019 – 08/2022</span>
-              <h3 data-i18n="job3.role">Desenvolvedor Full Stack</h3>
-              <p class="company">CG Contadores</p>
-              <ul>
-                <li data-i18n-html="job3.b1">Desenvolvimento e manutenção de aplicações utilizando <strong>Angular</strong>, <strong>Laravel</strong> e <strong>MySQL</strong>;</li>
-                <li data-i18n="job3.b2">Manutenção e evolução de sistemas legados;</li>
-                <li data-i18n-html="job3.b3">Criação e consumo de <strong>APIs REST</strong>.</li>
-              </ul>
+              <h3 class="job-heading">
+                <button class="job-toggle" type="button" id="job-question-3" aria-expanded="false" aria-controls="job-details-3">
+                  <span class="job-heading__main"><span class="tag">09/2019 – 08/2022</span><span class="job-title" data-i18n="job3.role">Desenvolvedor Full Stack</span><span class="company">CG Contadores</span></span>
+                  <span class="faq-icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq-answer job-details" id="job-details-3" role="region" aria-labelledby="job-question-3" aria-hidden="true" inert>
+                <div class="faq-answer__inner"><ul>
+                  <li data-i18n-html="job3.b1">Desenvolvimento e manutenção de aplicações utilizando <strong>Angular</strong>, <strong>Laravel</strong> e <strong>MySQL</strong>;</li>
+                  <li data-i18n="job3.b2">Manutenção e evolução de sistemas legados;</li>
+                  <li data-i18n-html="job3.b3">Criação e consumo de <strong>APIs REST</strong>.</li>
+                </ul></div>
+              </div>
             </article>
             <article class="card job">
-              <span class="tag">10/2018 – 09/2019</span>
-              <h3 data-i18n="job4.role">Desenvolvedor Web Júnior (Estágio)</h3>
-              <p class="company">Ondaweb</p>
-              <ul>
-                <li data-i18n-html="job4.b1">Desenvolvimento e manutenção de aplicações em <strong>PHP</strong>, <strong>WordPress</strong> e <strong>JavaScript</strong>;</li>
-                <li data-i18n-html="job4.b2">Publicação e gerenciamento de arquivos em servidores via <strong>FileZilla</strong>.</li>
-              </ul>
+              <h3 class="job-heading">
+                <button class="job-toggle" type="button" id="job-question-4" aria-expanded="false" aria-controls="job-details-4">
+                  <span class="job-heading__main"><span class="tag">10/2018 – 09/2019</span><span class="job-title" data-i18n="job4.role">Desenvolvedor Web Júnior (Estágio)</span><span class="company">Ondaweb</span></span>
+                  <span class="faq-icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq-answer job-details" id="job-details-4" role="region" aria-labelledby="job-question-4" aria-hidden="true" inert>
+                <div class="faq-answer__inner"><ul>
+                  <li data-i18n-html="job4.b1">Desenvolvimento e manutenção de aplicações em <strong>PHP</strong>, <strong>WordPress</strong> e <strong>JavaScript</strong>;</li>
+                  <li data-i18n-html="job4.b2">Publicação e gerenciamento de arquivos em servidores via <strong>FileZilla</strong>.</li>
+                </ul></div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="faq" class="panel">
+          <p class="kicker" data-i18n="faq.kicker">// 04 · perguntas frequentes</p>
+          <div class="faq-heading">
+            <h2 data-i18n="nav.faq">FAQ</h2>
+          </div>
+          <span class="visually-hidden" id="faq-sound-status" role="status" aria-live="polite"></span>
+          <div class="faq-list">
+            <article class="card faq-item">
+              <h3>
+                <button class="faq-question" type="button" id="faq-question-career" aria-expanded="false" aria-controls="faq-answer-career">
+                  <span data-i18n="faq.careerQuestion">Qual é sua situação atual de carreira?</span><span class="faq-icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq-answer" id="faq-answer-career" role="region" aria-labelledby="faq-question-career" aria-hidden="true" inert>
+                <div class="faq-answer__inner"><div class="faq-cabin">
+                  <p data-i18n-html="faq.careerAnswer">Estou em busca de um novo desafio <strong>full-time</strong>, mas também estou aberto a ideias de projetos <strong>freelancers</strong>. Estou refinando minhas habilidades em inglês para, quem sabe, levar minha carreira ao mercado <strong>internacional</strong>.</p>
+                </div></div>
+              </div>
+            </article>
+            <article class="card faq-item">
+              <h3>
+                <button class="faq-question" type="button" id="faq-question-1" aria-expanded="false" aria-controls="faq-answer-1">
+                  <span data-i18n="faq.q1">Por que você não mostra projetos no portfólio?</span><span class="faq-icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1" aria-hidden="true" inert>
+                <div class="faq-answer__inner"><div class="faq-cabin">
+                  <p data-i18n-html="faq.a1">A maior parte da minha carreira foi dedicada a <strong>projetos privados</strong> para empresas. Em muitos casos, os direitos sobre as ferramentas foram cedidos, então não posso compartilhar esses trabalhos publicamente. Outros projetos foram modificados por outros profissionais ou se tornaram <strong>obsoletos</strong>. Estou criando projetos novos e atuais para apresentar por aqui.</p>
+                </div></div>
+              </div>
+            </article>
+            <article class="card faq-item">
+              <h3>
+                <button class="faq-question" type="button" id="faq-question-2" aria-expanded="false" aria-controls="faq-answer-2">
+                  <span data-i18n="faq.q2">Você é Front End ou Full Stack?</span><span class="faq-icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2" aria-hidden="true" inert>
+                <div class="faq-answer__inner"><div class="faq-cabin">
+                  <p data-i18n-html="faq.a2">Nos últimos anos, tenho me dedicado mais ao <a href="https://www.alura.com.br/artigos/o-que-e-front-end-e-back-end" target="_blank" rel="noopener noreferrer">Front End</a>, mas tenho plena capacidade para atuar como <a href="https://www.alura.com.br/artigos/o-que-e-front-end-e-back-end" target="_blank" rel="noopener noreferrer">Full Stack</a>. Já fui líder técnico, trabalhei brevemente com automações em Python e também dei apoio pontual em testes e QA quando foi necessário.</p>
+                </div></div>
+              </div>
+            </article>
+            <article class="card faq-item">
+              <h3>
+                <button class="faq-question" type="button" id="faq-question-3" aria-expanded="false" aria-controls="faq-answer-3">
+                  <span data-i18n="faq.q3">Qual é sua opinião sobre o uso de inteligência artificial?</span><span class="faq-icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-question-3" aria-hidden="true" inert>
+                <div class="faq-answer__inner"><div class="faq-cabin">
+                  <p data-i18n-html="faq.a3">Acredito no uso de IA como qualquer desenvolvedor responsável hoje: como mais uma <strong>ferramenta</strong>, usada por quem tem conhecimento técnico para orientar e avaliar seus resultados — não como uma <strong>“lâmpada mágica”</strong>. Meus anos de experiência na área me ajudam a usá-la com <strong>critério</strong> e a extrair o máximo do seu <strong>potencial</strong>.</p>
+                </div></div>
+              </div>
             </article>
           </div>
         </section>
 
         <section id="contato" class="panel">
-          <p class="kicker" data-i18n="contact.kicker">// 04 · canteiro de obras</p>
+          <p class="kicker" data-i18n="contact.kicker">// 05 · canteiro de obras</p>
           <h2 data-i18n="nav.contact">Contato</h2>
           <p data-i18n="contact.text">Tem um sistema para tirar do papel? Vamos conversar.</p>
           <div class="actions">

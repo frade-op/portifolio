@@ -62,6 +62,7 @@
   const wrapper = document.getElementById('wrapper');
   let menuOpen = false;
   let thudTimer;
+  let projectsFaqTimer;
 
   // andares decorativos acima dos links
   const upper = document.getElementById('bld-upper');
@@ -85,6 +86,7 @@
   function setMenu(open) {
     menuOpen = open;
     clearTimeout(thudTimer);
+    playEarthquakeSound(open);
     toggle.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', String(open));
     updateToggleLabel();
@@ -115,6 +117,8 @@
   }
 
   function navigateTo(target) {
+    clearTimeout(projectsFaqTimer);
+    if (target.matches('.faq-question')) setFaqQuestionOpen(target, true);
     if (window.location.hash !== `#${target.id}`) {
       window.history.pushState(null, '', `#${target.id}`);
     }
@@ -150,6 +154,192 @@
       if (!target) return;
       e.preventDefault();
       navigateTo(target);
+      if (link.id === 'projects-cta') {
+        projectsFaqTimer = setTimeout(() => {
+          const projectsQuestion = document.getElementById('faq-question-1');
+          if (projectsQuestion) setFaqQuestionOpen(projectsQuestion, true);
+        }, 1500);
+      }
+    });
+  });
+
+  /* ================= FAQ: acordeão ================= */
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  const soundToggle = document.getElementById('sound-toggle');
+  const faqSoundStatus = document.getElementById('faq-sound-status');
+  const AudioContextClass = window.AudioContext;
+  let soundEnabled = false;
+  let faqAudioContext;
+  let quakeNoiseBuffer;
+
+  function updateSoundToggle() {
+    const label = window.I18N.t(soundEnabled ? 'sound.disable' : 'sound.enable');
+    soundToggle.setAttribute('aria-pressed', String(soundEnabled));
+    soundToggle.setAttribute('aria-label', label);
+    soundToggle.title = label;
+  }
+  updateSoundToggle();
+
+  async function getAudioContext() {
+    if (!AudioContextClass) throw new Error('Web Audio API indisponível.');
+    faqAudioContext = faqAudioContext || new AudioContextClass();
+    if (faqAudioContext.state === 'suspended') await faqAudioContext.resume();
+    return faqAudioContext;
+  }
+
+  function handleSoundError(error) {
+    soundEnabled = false;
+    updateSoundToggle();
+    faqSoundStatus.textContent = window.I18N.t('sound.error');
+    console.error(window.I18N.t('sound.error'), error);
+  }
+
+  async function playEarthquakeSound(opening) {
+    if (!soundEnabled) return;
+
+    try {
+      const audio = await getAudioContext();
+      if (!quakeNoiseBuffer) {
+        const frameCount = Math.floor(audio.sampleRate * 1.2);
+        quakeNoiseBuffer = audio.createBuffer(1, frameCount, audio.sampleRate);
+        const samples = quakeNoiseBuffer.getChannelData(0);
+        for (let i = 0; i < frameCount; i += 1) samples[i] = Math.random() * 2 - 1;
+      }
+
+      const start = audio.currentTime + 0.02;
+      const noise = audio.createBufferSource();
+      const filter = audio.createBiquadFilter();
+      const noiseGain = audio.createGain();
+      noise.buffer = quakeNoiseBuffer;
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(opening ? 850 : 700, start);
+      filter.frequency.exponentialRampToValueAtTime(opening ? 320 : 260, start + 1.1);
+      noiseGain.gain.setValueAtTime(0.0001, start);
+      noiseGain.gain.linearRampToValueAtTime(0.16, start + 0.08);
+      noiseGain.gain.exponentialRampToValueAtTime(0.0001, start + 1.15);
+      noise.connect(filter);
+      filter.connect(noiseGain);
+      noiseGain.connect(audio.destination);
+      noise.start(start);
+      noise.stop(start + 1.2);
+
+      const rumble = audio.createOscillator();
+      const rumbleGain = audio.createGain();
+      rumble.type = 'sine';
+      rumble.frequency.setValueAtTime(opening ? 78 : 68, start);
+      rumble.frequency.exponentialRampToValueAtTime(42, start + 1.05);
+      rumbleGain.gain.setValueAtTime(0.0001, start);
+      rumbleGain.gain.linearRampToValueAtTime(0.055, start + 0.1);
+      rumbleGain.gain.exponentialRampToValueAtTime(0.0001, start + 1.1);
+      rumble.connect(rumbleGain);
+      rumbleGain.connect(audio.destination);
+      rumble.start(start);
+      rumble.stop(start + 1.15);
+
+      const creak = audio.createOscillator();
+      const creakFilter = audio.createBiquadFilter();
+      const creakGain = audio.createGain();
+      creak.type = 'triangle';
+      creak.frequency.setValueAtTime(opening ? 190 : 145, start + 0.06);
+      creak.frequency.exponentialRampToValueAtTime(opening ? 115 : 95, start + 0.9);
+      creakFilter.type = 'lowpass';
+      creakFilter.frequency.value = 420;
+      creakGain.gain.setValueAtTime(0.0001, start);
+      creakGain.gain.linearRampToValueAtTime(0.045, start + 0.12);
+      creakGain.gain.exponentialRampToValueAtTime(0.0001, start + 0.95);
+      creak.connect(creakFilter);
+      creakFilter.connect(creakGain);
+      creakGain.connect(audio.destination);
+      creak.start(start);
+      creak.stop(start + 1);
+    } catch (error) {
+      handleSoundError(error);
+    }
+  }
+
+  async function playElevatorSounds() {
+    try {
+      const audio = await getAudioContext();
+
+      const start = audio.currentTime + 0.03;
+      const chimeGain = audio.createGain();
+      chimeGain.gain.setValueAtTime(0.0001, start);
+      chimeGain.gain.linearRampToValueAtTime(0.075, start + 0.025);
+      chimeGain.gain.exponentialRampToValueAtTime(0.0001, start + 0.65);
+      chimeGain.connect(audio.destination);
+
+      [659.25, 880].forEach((frequency, index) => {
+        const oscillator = audio.createOscillator();
+        const noteStart = start + index * 0.12;
+        oscillator.type = 'sine';
+        oscillator.frequency.value = frequency;
+        oscillator.connect(chimeGain);
+        oscillator.start(noteStart);
+        oscillator.stop(noteStart + 0.42);
+      });
+
+      const motorStart = start + 0.42;
+      const motor = audio.createOscillator();
+      const motorFilter = audio.createBiquadFilter();
+      const motorGain = audio.createGain();
+      motor.type = 'triangle';
+      motor.frequency.setValueAtTime(105, motorStart);
+      motor.frequency.exponentialRampToValueAtTime(58, motorStart + 0.8);
+      motorFilter.type = 'lowpass';
+      motorFilter.frequency.value = 240;
+      motorGain.gain.setValueAtTime(0.0001, motorStart);
+      motorGain.gain.linearRampToValueAtTime(0.025, motorStart + 0.08);
+      motorGain.gain.exponentialRampToValueAtTime(0.0001, motorStart + 0.82);
+      motor.connect(motorFilter);
+      motorFilter.connect(motorGain);
+      motorGain.connect(faqAudioContext.destination);
+      motor.start(motorStart);
+      motor.stop(motorStart + 0.84);
+    } catch (error) {
+      handleSoundError(error);
+    }
+  }
+
+  soundToggle.disabled = !AudioContextClass;
+  if (!AudioContextClass) faqSoundStatus.textContent = window.I18N.t('faq.soundUnsupported');
+  soundToggle.addEventListener('click', () => {
+    soundEnabled = !soundEnabled;
+    faqSoundStatus.textContent = '';
+    updateSoundToggle();
+  });
+  document.addEventListener('langchange', updateSoundToggle);
+
+  function setFaqQuestionOpen(button, open) {
+    const wasOpen = button.getAttribute('aria-expanded') === 'true';
+    faqQuestions.forEach((question) => {
+      const answer = document.getElementById(question.getAttribute('aria-controls'));
+      const shouldOpen = question === button && open;
+      question.setAttribute('aria-expanded', String(shouldOpen));
+      answer.setAttribute('aria-hidden', String(!shouldOpen));
+      answer.inert = !shouldOpen;
+      question.closest('.faq-item').classList.toggle('is-open', shouldOpen);
+    });
+
+    if (open && !wasOpen && soundEnabled && window.matchMedia('(max-width: 760px)').matches) {
+      playElevatorSounds();
+    }
+  }
+
+  faqQuestions.forEach((button) => {
+    button.addEventListener('click', () => {
+      clearTimeout(projectsFaqTimer);
+      setFaqQuestionOpen(button, button.getAttribute('aria-expanded') !== 'true');
+    });
+  });
+
+  document.querySelectorAll('.job-toggle').forEach((button) => {
+    button.addEventListener('click', () => {
+      const open = button.getAttribute('aria-expanded') !== 'true';
+      const details = document.getElementById(button.getAttribute('aria-controls'));
+      button.setAttribute('aria-expanded', String(open));
+      details.setAttribute('aria-hidden', String(!open));
+      details.inert = !open;
+      button.closest('.job').classList.toggle('is-open', open);
     });
   });
 
