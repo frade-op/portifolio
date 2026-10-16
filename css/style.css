@@ -144,6 +144,99 @@ section { scroll-margin-top: 24px; }
   color: #2a1a05;
   background: repeating-linear-gradient(-45deg, var(--amber) 0 8px, #e8a91f 8px 16px);
 }
+.projects-panel { scroll-margin-top: 72px; }
+.projects-panel > p:not(.kicker) { margin-top: -4px; }
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+.project-card {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  min-height: 280px;
+  overflow: hidden;
+  align-items: flex-end;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--text);
+  text-decoration: none;
+  background-color: #211936;
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.project-card::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  background: linear-gradient(180deg, rgba(8, 6, 22, 0.12) 0%, rgba(8, 6, 22, 0.48) 35%, rgba(8, 6, 22, 0.94) 100%);
+  transition: background 0.25s ease;
+}
+.project-card:hover,
+.project-card:focus-visible {
+  transform: translateY(-5px);
+  border-color: var(--amber);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.5);
+}
+.project-card:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+.project-card:hover::before,
+.project-card:focus-visible::before {
+  background: linear-gradient(180deg, rgba(8, 6, 22, 0.3) 0%, rgba(8, 6, 22, 0.66) 38%, rgba(8, 6, 22, 0.98) 100%);
+}
+.project-card--lobby {
+  background-image: url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=85");
+}
+.project-card--anime {
+  background-image: url("https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1000&q=85");
+}
+.project-card--payments {
+  background-image: url("https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=85");
+}
+.project-card--tfmk {
+  background-image: url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1000&q=85");
+}
+.project-card--upcoming { cursor: default; }
+.project-card--upcoming:hover { transform: none; border-color: var(--line); }
+.project-card__content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.project-card__eyebrow {
+  margin-bottom: 10px;
+  color: var(--amber);
+  font: 700 0.72rem Consolas, "Courier New", monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.project-card__title {
+  margin-bottom: 8px;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  line-height: 1.1;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.65);
+}
+.project-card__description {
+  max-width: 42ch;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.project-card__link {
+  margin-top: 18px;
+  color: var(--amber);
+  font-weight: 700;
+}
+.project-card__link span { display: inline-block; transition: transform 0.2s ease; }
+.project-card:hover .project-card__link span,
+.project-card:focus-visible .project-card__link span { transform: translate(3px, -3px); }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 14px; padding: 0; list-style: none; }
 .chips li {
   padding: 3px 10px;
@@ -476,6 +569,8 @@ body.custom-cursor .menu-toggle { cursor: pointer !important; }
 @media (max-width: 480px) {
   .building { width: 210px; }
   .panel { padding: 24px 18px; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-card { min-height: 250px; padding: 20px; }
   .beam-rig { left: 42%; width: 70vw; }
 
   #contato .actions .btn { flex: 1 1 0; min-width: 0; padding: 12px 8px; text-align: center; }
@@ -492,6 +587,7 @@ body.custom-cursor .menu-toggle { cursor: pointer !important; }
   .beam-rig { animation-duration: 120s; }
   .building.opening, .building.closing { animation-duration: 0.01s; }
   .bld-antenna::after { animation: none; }
+  .project-card, .project-card::before, .project-card__link span { transition: none; }
 }
 
 /* ---------- Idioma e experi�ncia ---------- */

@@ -54,10 +54,11 @@
     </div>
     <div class="bld-upper" id="bld-upper" aria-hidden="true"></div>
     <nav class="bld-floors">
-      <a class="floor" href="#inicio"><i class="win lit"></i><span><small data-i18n="floor.6">6º andar</small><b data-i18n="nav.home">Início</b></span><i class="win"></i></a>
-      <a class="floor" href="#sobre"><i class="win"></i><span><small data-i18n="floor.5">5º andar</small><b data-i18n="nav.about">Sobre</b></span><i class="win lit"></i></a>
-      <a class="floor" href="#habilidades"><i class="win lit"></i><span><small data-i18n="floor.4">4º andar</small><b data-i18n="nav.skills">Habilidades</b></span><i class="win lit"></i></a>
-      <a class="floor" href="#experiencia"><i class="win"></i><span><small data-i18n="floor.3">3º andar</small><b data-i18n="nav.experience">Experiência</b></span><i class="win lit"></i></a>
+      <a class="floor" href="#inicio"><i class="win lit"></i><span><small data-i18n="floor.7">7º andar</small><b data-i18n="nav.home">Início</b></span><i class="win"></i></a>
+      <a class="floor" href="#sobre"><i class="win"></i><span><small data-i18n="floor.6">6º andar</small><b data-i18n="nav.about">Sobre</b></span><i class="win lit"></i></a>
+      <a class="floor" href="#habilidades"><i class="win lit"></i><span><small data-i18n="floor.5">5º andar</small><b data-i18n="nav.skills">Habilidades</b></span><i class="win lit"></i></a>
+      <a class="floor" href="#experiencia"><i class="win"></i><span><small data-i18n="floor.4">4º andar</small><b data-i18n="nav.experience">Experiência</b></span><i class="win lit"></i></a>
+      <a class="floor" href="#projetos"><i class="win lit"></i><span><small data-i18n="floor.3">3º andar</small><b data-i18n="nav.projects">Projetos</b></span><i class="win"></i></a>
       <a class="floor" href="#faq"><i class="win lit"></i><span><small data-i18n="floor.2">2º andar</small><b data-i18n="nav.faq">FAQ</b></span><i class="win"></i></a>
       <a class="floor" href="#contato"><i class="win lit"></i><span><small data-i18n="floor.1">1º andar</small><b data-i18n="nav.contact">Contato</b></span><i class="win"></i></a>
     </nav>
@@ -89,7 +90,7 @@
           <p class="role" data-i18n="hero.role">Desenvolvedor de Software</p>
           <div class="hero-spacer" aria-hidden="true"></div>
           <div class="actions">
-            <a class="btn btn--primary" id="projects-cta" href="#faq" data-i18n="hero.cta1">Projetos?</a>
+            <a class="btn btn--primary" id="projects-cta" href="#projetos" data-i18n="hero.cta1">Projetos</a>
             <a class="btn" href="#contato" data-i18n="hero.cta2">Vamos conversar</a>
           </div>
         </section>
@@ -216,8 +217,47 @@
           </div>
         </section>
 
+        <section id="projetos" class="panel projects-panel">
+          <p class="kicker" data-i18n="projects.kicker">// 04 · projetos em destaque</p>
+          <h2 data-i18n="nav.projects">Projetos</h2>
+          <p data-i18n-html="projects.intro"><strong>Novos</strong> experimentos pessoais com diferentes objetivos, estilos e tecnologias.</p>
+          <div class="projects-grid">
+            <a class="project-card project-card--anime" href="https://frade-op-demos.com.br/haikyuu/" target="_blank" rel="noopener noreferrer" data-i18n-aria="projects.animeAria">
+              <span class="project-card__content">
+                <span class="project-card__eyebrow" data-i18n="projects.animeLabel">Experiência visual</span>
+                <span class="project-card__title">Haikyuu!!</span>
+                <span class="project-card__description" data-i18n="projects.animeDescription">Um site de anime criado para ser bonito, criativo e envolvente.</span>
+                <span class="project-card__link" data-i18n="projects.visit">Visitar projeto <span aria-hidden="true">↗</span></span>
+              </span>
+            </a>
+            <a class="project-card project-card--payments" href="https://frade-op-demos.com.br/voce-me-paga/" target="_blank" rel="noopener noreferrer" data-i18n-aria="projects.paymentsAria">
+              <span class="project-card__content">
+                <span class="project-card__eyebrow" data-i18n="projects.paymentsLabel">Aplicação web · Python</span>
+                <span class="project-card__title">Você Me Paga</span>
+                <span class="project-card__description" data-i18n="projects.paymentsDescription">Aplicação com back-end em Python, pensada para ser útil e dinâmica.</span>
+                <span class="project-card__link" data-i18n="projects.visit">Visitar projeto <span aria-hidden="true">↗</span></span>
+              </span>
+            </a>
+            <a class="project-card project-card--lobby" href="https://frade-op-demos.com.br/" target="_blank" rel="noopener noreferrer" data-i18n-aria="projects.lobbyAria">
+              <span class="project-card__content">
+                <span class="project-card__eyebrow" data-i18n="projects.lobbyLabel">Portal de demos</span>
+                <span class="project-card__title">Demos</span>
+                <span class="project-card__description" data-i18n="projects.lobbyDescription">Um lobby que reúne meus demos e funciona como ponto de entrada para cada projeto.</span>
+                <span class="project-card__link" data-i18n="projects.visit">Visitar projeto <span aria-hidden="true">↗</span></span>
+              </span>
+            </a>
+            <article class="project-card project-card--tfmk project-card--upcoming">
+              <span class="project-card__content">
+                <span class="project-card__eyebrow" data-i18n="projects.upcomingLabel">Em desenvolvimento</span>
+                <span class="project-card__title">TFMK</span>
+                <span class="project-card__description" data-i18n="projects.tfmkDescription">Novo projeto autoral em desenvolvimento. Mais detalhes em breve.</span>
+              </span>
+            </article>
+          </div>
+        </section>
+
         <section id="faq" class="panel">
-          <p class="kicker" data-i18n="faq.kicker">// 04 · perguntas frequentes</p>
+          <p class="kicker" data-i18n="faq.kicker">// 05 · perguntas frequentes</p>
           <div class="faq-heading">
             <h2 data-i18n="nav.faq">FAQ</h2>
           </div>
@@ -238,12 +278,12 @@
             <article class="card faq-item">
               <h3>
                 <button class="faq-question" type="button" id="faq-question-1" aria-expanded="false" aria-controls="faq-answer-1">
-                  <span data-i18n="faq.q1">Por que você não mostra projetos no portfólio?</span><span class="faq-icon" aria-hidden="true"></span>
+                  <span data-i18n="faq.q1">Por que você tem poucos projetos no portfólio?</span><span class="faq-icon" aria-hidden="true"></span>
                 </button>
               </h3>
               <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1" aria-hidden="true" inert>
                 <div class="faq-answer__inner"><div class="faq-cabin">
-                  <p data-i18n-html="faq.a1">A maior parte da minha carreira foi dedicada a <strong>projetos privados</strong> para empresas. Em muitos casos, os direitos sobre as ferramentas foram cedidos, então não posso compartilhar esses trabalhos publicamente. Outros projetos foram modificados por outros profissionais ou se tornaram <strong>obsoletos</strong>. Estou criando projetos novos e atuais para apresentar por aqui.</p>
+                  <p data-i18n-html="faq.a1">A maior parte da minha carreira foi dedicada a <strong>projetos privados</strong> para empresas, que não posso compartilhar publicamente. Alguns projetos antigos também foram modificados por outros profissionais ou se tornaram obsoletos. Agora estou criando projetos pessoais novos para apresentar por aqui.</p>
                 </div></div>
               </div>
             </article>
@@ -275,7 +315,7 @@
         </section>
 
         <section id="contato" class="panel">
-          <p class="kicker" data-i18n="contact.kicker">// 05 · canteiro de obras</p>
+          <p class="kicker" data-i18n="contact.kicker">// 06 · canteiro de obras</p>
           <h2 data-i18n="nav.contact">Contato</h2>
           <p data-i18n="contact.text">Tem um sistema para tirar do papel? Vamos conversar.</p>
           <div class="actions">

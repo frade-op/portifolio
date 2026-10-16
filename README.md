@@ -9,7 +9,7 @@ O tema é **construção e arquitetura**: construir sistemas e soluções como q
 O projeto serve a dois propósitos ao mesmo tempo:
 
 1. **Vitrine de ideias engenhosas.** Cada efeito da página é uma pequena ideia de interface que eu quis explorar.
-2. **Currículo.** O conteúdo (perfil, habilidades, experiência e contato) vem do meu currículo, apresentado através desses efeitos.
+2. **Currículo e projetos.** O conteúdo reúne perfil, habilidades, experiência, contato e uma vitrine para projetos pessoais.
 
 Ou seja, a página é um portfólio e também uma demonstração do que gosto de construir.
 
@@ -31,6 +31,7 @@ Com as ideias validadas, usei **IA** para dar vida ao conjunto: unir os scripts 
 - **Viga suspensa.** Uma viga com correntes sobe lentamente do fundo da página até o topo e desce de novo. Em telas de toque (celular) ela fica oculta para não atrapalhar a leitura.
 - **Cursor atrás da viga.** O cursor é personalizado e passa por trás da viga e das correntes, como se desaparecesse atrás delas.
 - **Fundo de fim de tarde.** Um céu de pôr do sol desenhado em canvas, com prédios em camadas, guindastes, esqueletos de obra e janelas acesas.
+- **Vitrine de projetos.** Cards com imagens, sobreposição escura e links para demos, além de um projeto em desenvolvimento.
 - **Português e inglês.** Um botão alterna o idioma. A escolha fica salva no navegador e, na primeira visita, segue o idioma dele.
 - **Acessibilidade.** Quem usa "reduzir movimento" no sistema não vê o terremoto e vê a viga mais lenta (isso vale também no celular, onde o modo de economia de energia pode ativar essa opção). A tecla `Esc` fecha o menu.
 
@@ -65,7 +66,7 @@ The theme is **construction and architecture**: building systems and solutions t
 The project has two goals at once:
 
 1. **A showcase of clever ideas.** Each effect on the page is a small interface idea I wanted to explore.
-2. **A résumé.** The content (profile, skills, experience and contact) comes from my résumé, presented through those effects.
+2. **A résumé and project showcase.** The page brings together my profile, skills, experience, contact details and personal projects.
 
 So the page is a portfolio and also a demonstration of what I enjoy building.
 
@@ -87,6 +88,7 @@ Once the ideas were proven, I used **AI** to bring it all to life: merging the s
 - **Hanging beam.** A beam with chains slowly rises from the bottom of the page to the top and comes back down. It is hidden on touch screens (phones) so it does not get in the way of reading.
 - **Cursor behind the beam.** The custom cursor passes behind the beam and chains, as if disappearing behind them.
 - **Late-afternoon background.** A sunset sky drawn on a canvas, with layered buildings, cranes, building frames under construction and lit windows.
+- **Project showcase.** Image cards with dark overlays link to demos and highlight a project in development.
 - **Portuguese and English.** A button switches the language. The choice is saved in the browser and, on the first visit, follows the browser language.
 - **Accessibility.** Users who prefer reduced motion see no earthquake and a slower beam (also on phones, where battery-saver modes may enable this setting). The `Esc` key closes the menu.
 

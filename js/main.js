@@ -62,7 +62,6 @@
   const wrapper = document.getElementById('wrapper');
   let menuOpen = false;
   let thudTimer;
-  let projectsFaqTimer;
 
   // andares decorativos acima dos links
   const upper = document.getElementById('bld-upper');
@@ -117,7 +116,6 @@
   }
 
   function navigateTo(target) {
-    clearTimeout(projectsFaqTimer);
     if (target.matches('.faq-question')) setFaqQuestionOpen(target, true);
     if (window.location.hash !== `#${target.id}`) {
       window.history.pushState(null, '', `#${target.id}`);
@@ -154,12 +152,6 @@
       if (!target) return;
       e.preventDefault();
       navigateTo(target);
-      if (link.id === 'projects-cta') {
-        projectsFaqTimer = setTimeout(() => {
-          const projectsQuestion = document.getElementById('faq-question-1');
-          if (projectsQuestion) setFaqQuestionOpen(projectsQuestion, true);
-        }, 1500);
-      }
     });
   });
 
@@ -327,7 +319,6 @@
 
   faqQuestions.forEach((button) => {
     button.addEventListener('click', () => {
-      clearTimeout(projectsFaqTimer);
       setFaqQuestionOpen(button, button.getAttribute('aria-expanded') !== 'true');
     });
   });
