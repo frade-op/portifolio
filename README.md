@@ -9,7 +9,7 @@ O tema é **construção e arquitetura**: construir sistemas e soluções como q
 O projeto serve a dois propósitos ao mesmo tempo:
 
 1. **Vitrine de ideias engenhosas.** Cada efeito da página é uma pequena ideia de interface que eu quis explorar.
-2. **Currículo e projetos.** O conteúdo reúne perfil, habilidades, experiência, contato e uma vitrine para projetos pessoais.
+2. **Perfil e projetos.** O conteúdo reúne perfil, habilidades, contato e uma vitrine para projetos pessoais.
 
 Ou seja, a página é um portfólio e também uma demonstração do que gosto de construir.
 
@@ -66,7 +66,7 @@ The theme is **construction and architecture**: building systems and solutions t
 The project has two goals at once:
 
 1. **A showcase of clever ideas.** Each effect on the page is a small interface idea I wanted to explore.
-2. **A résumé and project showcase.** The page brings together my profile, skills, experience, contact details and personal projects.
+2. **A profile and project showcase.** The page brings together my profile, skills, contact details and personal projects.
 
 So the page is a portfolio and also a demonstration of what I enjoy building.
 

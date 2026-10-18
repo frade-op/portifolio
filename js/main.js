@@ -323,17 +323,6 @@
     });
   });
 
-  document.querySelectorAll('.job-toggle').forEach((button) => {
-    button.addEventListener('click', () => {
-      const open = button.getAttribute('aria-expanded') !== 'true';
-      const details = document.getElementById(button.getAttribute('aria-controls'));
-      button.setAttribute('aria-expanded', String(open));
-      details.setAttribute('aria-hidden', String(!open));
-      details.inert = !open;
-      button.closest('.job').classList.toggle('is-open', open);
-    });
-  });
-
   /* ================= Cursor atrás da viga ================= */
   const cursor = document.getElementById('cursor');
   if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
