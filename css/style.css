@@ -219,6 +219,9 @@ section { scroll-margin-top: 24px; }
 .project-card--payments {
   background-image: url("https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=85");
 }
+.project-card--legacy-to-new {
+  background-image: url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=85");
+}
 .project-card--tfmk {
   background-image: url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1000&q=85");
 }
